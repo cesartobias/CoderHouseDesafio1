@@ -4,11 +4,22 @@ var ClienteBanco = /** @class */ (function () {
         this.nombreCliente = nombreCliente;
         this.pin = pin;
         this.saldo = saldo;
+        this.idBanco = 1;
+        this.idCliente = 1;
         this.getSaldo = function () {
+            var data = { saldo: _this.saldo };
+        };
+        this.Abono = function () {
+            var data = { saldo: _this.saldo };
+        };
+        this.Retiro = function () {
             var data = { saldo: _this.saldo };
         };
         this.GetPin = function () {
             console.log(_this.pin);
+        };
+        this.Changepin = function (pin) {
+            return 2;
         };
     }
     return ClienteBanco;
