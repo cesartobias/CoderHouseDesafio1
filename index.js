@@ -32,9 +32,13 @@ var Cliente = /** @class */ (function () {
                 id: _this.idCliente,
                 nombre: _this.nombreCliente,
                 direccion: _this.dirCliente,
-                telefono: _this.telCliente
+                telefono: _this.telCliente,
+                NIP: _this.NIP
             };
             return data;
+        };
+        this.updateNIP = function (NIP) {
+            console.log("Su NIP se ha cambiado de manera correcta a " + NIP);
         };
     }
     return Cliente;
@@ -49,24 +53,24 @@ var saldoCta = {
     dirCliente: "Av Paseo del Valle # 120 Col. Popocatepetl",
     telCliente: "(999) 9999 9999",
     saldo: 200,
-    fechaTransaccion: "12/12/2021"
+    fechaTransaccion: "12/12/2021",
+    NIP: 1234
 };
 console.log(saldoCta.nombreCliente);
-// class ClienteBanco implements ClienteBancoInterface{
-//   saldo=20;
-//   getSaldo=()=>{
-//   }
-// }
 //console.log("***** Informacion Guardada del Banco *****");
 var banco = new Banco();
 var datosBanco = banco.getInfoBanco();
+var cliente = new Cliente();
 console.log("Nombre del Banco: " + datosBanco.nombre);
 console.log("Direccion: " + datosBanco.direccion);
 console.log("Telefono: " + datosBanco.telefono);
 console.log("Bienvenido " + saldoCta.nombreCliente);
-console.log("Su saldo al dia de hoy " + saldoCta.saldo);
+console.log("Su saldo al dia de hoy $" + saldoCta.saldo);
 console.log("Fecha ultima transaccion " + saldoCta.fechaTransaccion);
 console.log("*******************************************");
+console.log("Para actiuvar su tarjeta es necesario cambioar el NIP");
+cliente.updateNIP(9876);
+console.log("******** DEBUG ****************");
 console.log("***** Actualizacion Informacion del Banco *****");
 var updateBanco = new Banco();
 updateBanco.setInfoBanco(2, "Banco 2", "Direccion 2", "(999) 9999 999");

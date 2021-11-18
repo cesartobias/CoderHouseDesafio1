@@ -9,7 +9,8 @@ interface ClienteInterface{
   idCliente:number,
   nombreCliente: string,
   dirCliente: string,
-  telCliente: string
+  telCliente: string,
+  NIP:number
 }
 
 
@@ -38,7 +39,7 @@ class Banco implements BancoInterFace{
 
   setInfoBanco =(id:number,nombre:string, direccion:string,telefono:string):void=>{
     console.log(`Informacion Actualizada del Banco.....Id Banco: ${id} Nombre Banco : ${nombre} Direccion Banco ${direccion} Telefono: ${telefono} `);
-  }
+  }  
  }
 
 
@@ -46,17 +47,22 @@ class Banco implements BancoInterFace{
   idCliente=1;
   nombreCliente="Cesar Tobias";
   dirCliente="Av Paseo del Valle # 120 Col. Popocatepetl";
-  telCliente="(999) 9999 9999"
-
+  telCliente="(999) 9999 9999";
+  NIP:1234;
  /*public*/ getInfocustomer =()=>{
    let data ={ 
      id:this.idCliente,
     nombre:this.nombreCliente,
     direccion:this.dirCliente,
-    telefono:this.telCliente
+    telefono:this.telCliente,
+    NIP:this.NIP
    }
    return data;
  }
+
+ updateNIP=(NIP:number):void=>{
+  console.log(`Su NIP se ha cambiado de manera correcta a ${NIP}` );
+    }
 }
 
 var saldoCta: ClienteBancoInterface = {
@@ -69,35 +75,29 @@ var saldoCta: ClienteBancoInterface = {
   dirCliente:"Av Paseo del Valle # 120 Col. Popocatepetl",
   telCliente:"(999) 9999 9999",
   saldo:200,
-  fechaTransaccion:"12/12/2021"
+  fechaTransaccion:"12/12/2021",
+  NIP:1234
 }
 
 console.log(saldoCta.nombreCliente)
-
-
-// class ClienteBanco implements ClienteBancoInterface{
-
-//   saldo=20;
-//   getSaldo=()=>{
-
-//   }
-// }
-
-
 
 //console.log("***** Informacion Guardada del Banco *****");
 
 
 let banco = new Banco();
 const datosBanco = banco.getInfoBanco();
+let cliente = new Cliente();
 console.log("Nombre del Banco: " + datosBanco.nombre);
 console.log("Direccion: " + datosBanco.direccion);
 console.log("Telefono: " + datosBanco.telefono);
 console.log("Bienvenido " + saldoCta.nombreCliente);
-console.log("Su saldo al dia de hoy " + saldoCta.saldo);
+console.log("Su saldo al dia de hoy $" + saldoCta.saldo);
 console.log("Fecha ultima transaccion " + saldoCta.fechaTransaccion);
-
 console.log("*******************************************");
+console.log("Para activar su tarjeta es necesario cambiar el NIP");
+cliente.updateNIP(9876);
+
+console.log("******** DEBUG ****************");
 console.log("***** Actualizacion Informacion del Banco *****")
 
 
